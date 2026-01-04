@@ -3,7 +3,7 @@
     <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>GeoVillage</title>
+  <title>Tentang</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -39,15 +39,23 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <img src="assets/img/map_logo.png" alt="">
-        <h1 class="sitename">GeoVillage</h1>
+        <h1 class="sitename">Tentang</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Beranda</a></li>
-          <li><a href="Desaku.html">Peta Desa</a></li>
-          <li><a href="kecamatan.html">Peta Kecamatan</a></li>
-          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="index.html">Beranda</a></li>
+           <li class="dropdown">
+      <a href="#"><span>Peta Desa</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="Desaku.html">Desa Wlahar Wetan</a></li>
+        <li><a href="DesaSrowot/Srowot.html">Desa Srowot </a></li>
+        <li><a href="DesaKalibagor/Kalibagor.html">Desa Kalibagor </a></li>
+        <li><a href="DesaKalicupakLor/Kalicupak.html">Desa Kalicupak Lor</a></li>
+      </ul>
+    </li>  
+          <li><a href="KecKalibagor//Kecamatan.Kalibagor.html">Peta Kecamatan</a></li>
+          <li><a href="tentang.html"class="active">Tentang</a></li>
           </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -231,9 +239,16 @@ h2 {
     color: #0097e6 !important;
 }
 
-/* Warna link yang active (sekarang biru), ubah ke hitam */
+/* Warna link saat dalam keadaan aktif (halaman yang sedang dibuka) */
 .navmenu a.active {
-    color: #2f3640 !important;
+    color: #0097e6 !important; /* Ubah ke biru agar terlihat sedang di halaman tersebut */
+    font-weight: 600 !important; /* Opsional: buat sedikit lebih tebal agar kontras */
+}
+
+/* Pastikan hover juga tetap biru */
+.navmenu a:hover, 
+.navmenu a.active:hover {
+    color: #0097e6 !important;
 }
 /* supaya link active juga bisa berubah biru saat di-hover */
 .navmenu a.active:hover {
@@ -254,9 +269,17 @@ h2 {
 
     <ul style="list-style:none; padding-left:0; margin-top:20px;">
         <li><a href="index.html">Beranda</a></li>
-        <li><a href="Desaku.html">Peta Desa</a></li>
-        <li><a href="kecamatan.html">Peta Kecamatan</a></li>
-        <li><a href="tentang.html">Tentang</a></li>
+        <li class="dropdown">
+      <a href="#"><span>Peta Desa</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="Desaku.html">Desa Wlahar Wetan</a></li>
+        <li><a href="DesaSrowot/Srowot.html">Desa Srowot </a></li>
+        <li><a href="DesaKalibagor/Kalibagor.html">Desa Kalibagor </a></li>
+        <li><a href="DesaKalicupakLor/Kalicupak.html">Desa Kalicupak Lor</a></li>
+      </ul>
+    </li>             
+       <li><a href="KecKalibagor/Kecamatan.Kalibagor.html">Peta Kecamatan</a></li>
+        <li><a href="tentang.html"class="active">Tentang</a></li>
     </ul>
 </div>
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>GeoVillage</title>
+  <title>Kecamatan Kalibagor</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -26,7 +26,75 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+ <style>
+    /* 1. KONFIGURASI UTAMA GELEMBUNG */
+    #bubble-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Kita pasang di angka 2 agar berada di DEPAN background hero */
+      z-index: 2; 
+      overflow: hidden;
+      pointer-events: none;
+    }
 
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(56, 175, 233, 0.2); /* Sedikit lebih tebal agar terlihat di atas gambar */
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(56, 175, 233, 0.2);
+      border-radius: 50%;
+      animation: floatUp 12s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(-130vh) translateX(50px) scale(1.3); opacity: 0; }
+    }
+
+    /* 2. HEADER & DROPDOWN (Harus paling depan) */
+    #header {
+      z-index: 9999 !important;
+      position: fixed;
+    }
+
+    /* 3. HERO BACKGROUND (Harus di belakang gelembung) */
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Angka 1 (di bawah gelembung) */
+    }
+
+    /* 4. KONTEN TEKS & TOMBOL (Harus di depan gelembung agar bisa diklik) */
+    .hero .container, .featured-services, .faq, .footer {
+      position: relative;
+      z-index: 10; /* Angka 10 (di depan gelembung) */
+    }
+
+    /* Hilangkan background solid agar gelembung tembus ke seluruh halaman */
+    .hero, .section, .light-background {
+      background-color: transparent !important;
+    }
+    /* Efek Goyang Halus (Floating) */
+@keyframes floating {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Class untuk dipasang di gambar */
+.logo-goyang {
+  animation: floating 3s ease-in-out infinite;
+  display: inline-block; /* Memastikan transformasi bekerja dengan baik */
+}
+</style>
   <!-- =======================================================
   * Template Name: QuickStart
   * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
@@ -37,25 +105,32 @@
 </head>
 
 <body class="index-page">
-
+<div id="bubble-wrapper"></div>
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/map_logo.png" alt="">
-        <h1 class="sitename">GeoVillage</h1>
-      </a>
+  <img src="assets/img/map_logo.png" alt="" class="logo-goyang"> <h1 class="sitename">Kecamatan Kalibagor</h1>
+</a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero" class="active">Beranda</a></li>
-          <li><a href="Desaku.html">Peta Desa</a></li>
-          <li><a href="kecamatan.html">Peta Kecamatan</a></li>
-          <li><a href="tentang.html">Tentang</a></li>
-          </li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+     <nav id="navmenu" class="navmenu">
+  <ul>
+    <li><a href="index.html#hero" class="active">Beranda</a></li>
+    
+    <li class="dropdown">
+      <a href="#"><span>Peta Desa</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="Desaku.html">Desa Wlahar Wetan</a></li>
+        <li><a href="DesaSrowot/Srowot.html">Desa Srowot </a></li>
+        <li><a href="DesaKalibagor/Kalibagor.html">Desa Kalibagor </a></li>
+        <li><a href="DesaKalicupakLor/Kalicupak.html">Desa Kalicupak Lor</a></li>
+      </ul>
+    </li>
+    <li><a href="KecKalibagor/Kecamatan.Kalibagor.html">Peta Kecamatan</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
     </div>
   </header>
 
@@ -68,9 +143,9 @@
       </div>
       <div class="container text-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 data-aos="fade-up">Selamat Datang <span>GeoVillage</span></h1>
+          <h1 data-aos="fade-up">Selamat Datang <span>Kecamatan Kalibagor</span></h1>
           <p data-aos="fade-up" data-aos-delay="100">Satu Peta Desa, Satu Langkah Maju<br></p>
-          <img src="assets/img/map_logo.png" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300">
+          <img src="assets/img/map_logo.png" class="img-fluid hero-img logo-goyang" alt="" data-aos="zoom-out" data-aos-delay="300">
         </div>
       </div>
 
@@ -88,7 +163,7 @@
               <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
               <div>
                 <h4 class="title"><a href="#" class="stretched-link">Luas Wilayah</a></h4>
-                <p class="description">	384.29 km²</p>
+                <p class="description">	35,73 km²</p>
               </div>
             </div>
           </div>
@@ -99,7 +174,7 @@
               <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
               <div>
                 <h4 class="title"><a href="#" class="stretched-link">Jumlah Penduduk</a></h4>
-                <p class="description">3764</p>
+                <p class="description">58.785 jiwa</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -109,10 +184,11 @@
               <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
               <div>
                 <h4 class="title"><a href="#" class="stretched-link">Kepadatan</a></h4>
-                <p class="description">8 jiwa/km²</p>
+                <p class="description">1.333 jiwa/km²</p>
               </div>
             </div>
           </div><!-- End Service Item -->
+          
 
         </div>
 
@@ -127,7 +203,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Informasi Desa Wlahar Wetan</h2>
+        <h2>Informasi Kecamatan Kalibagor</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -141,8 +217,8 @@
               <div class="faq-item faq-active">
                 <h3>Georafis</h3>
                 <div class="faq-content">
-                  <p>Wlahar Wetan adalah desa di Kecamatan Kalibagor, Banyumas, Jawa Tengah, Indonesia.Luas wilayah Desa Wlahar Wetan[1] sekitar 384.29 km2  atau setara dengan 384.29 ha, dengan keadaan wilayah antara daratan dan pegunungan dengan struktur pegunungan terdiri dari sebagian lembah Sungai Serayu untuk tanah pertanian, sebagian dataran tinggi untuk pemukiman dan pekarangan, dan sebagian pegunungan untuk perkebunan.
-</p>
+                  <p>Kalibagor (Hanacaraka: ꦏꦭꦶꦧꦒꦺꦴꦂ ) adalah sebuah kecamatan di Kabupaten Banyumas, Provinsi Jawa Tengah, Indonesia. Kecamatan ini berjarak sekitar 10 Km dari Kota Purwokerto ke arah tenggara. Pusat pemerintahannya berada di Desa Kalibagor. Jumlah penduduk Kecamatan Kalibagor pada tahun 2023 adalah sebanyak 58.785 Jiwa terdiri dari 29.760 Laki-laki dan 29.025 Perempuan.
+                    kalibagor berbatasan dengan Sokaraja di ujung utara dan Banyumas di bagian Selatan. Terdapat bekas pabrik gula peninggalan zaman Belanda yang terakhir beroperasi sekitar tahun 90an. Sekarang bekas pabrik gula Kalibagor mangkrak menyisakan puing-puing besi yang bernilai jual tinggi dan masih terus pelan-pelan dijarah orang-orang yang tidak bertanggung jawab.
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -150,48 +226,51 @@
               <div class="faq-item">
                 <h3>Batas Wilayah</h3>
                 <div class="faq-content">
-                  <p>Utara    = Desa Pekaja <br>
-                      Selatan = Desa Kaliori <br>
-                      Barat    = Desa Wlahar Kulon <br>
-                      Timur   = Desa Kaliori</p>
+                  <p>Utara    = Kecamatan Sokaraja <br>
+                      Selatan = Kecamtan Banyumas dan Kecamatan Somagede <br>
+                      Barat    = Kecamatan Patikraja dan Kecamatan Somagede <br>
+                      Timur   = Kecamatan Somagede dan Kabupaten Purbalingga</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>Pembagian Administratif</h3>
+                              <h3>Pembagian Wilayah</h3>
+                              <div class="faq-content">
+                                <p>1. Kalibagor <br>
+                                  2. Kalicupak Kidul <br>
+                                  3. Kalicupak Lor <br>
+                                  4. Kaliori <br>
+                                  5. Kalisogra Wetan <br>
+                                  6. Karangdadap <br>
+                                  7. Pajerukan <br>
+                                  8. Pekaja <br>
+                                  9. Petir <br>
+                                  10. Srowot <br>
+                                  11. Suro <br>
+                                  12. Wlahar Wetan <br>
+
+                              </div>
+                              <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Sarana Prasarana</h3>
                 <div class="faq-content">
-                  <p>Secara administratif, Desa Wlahar Wetan terdiri dari 2 Dusun, 2 RW, dan 18 RT. Kadus I terdiri dari 1 RW dan 8 RT,
-                     sedang Kadus II terdiri dari 1 RW dan 10 RT.</p>
+                  <p>
+                    1. Polsek Kalibagor di desa Kalibagor <br>
+                    2. Koramil Kalibagor di desa Kalibagor <br>
+                    3. Puskesmas Kalibagor di desa Kalibagor <br>
+                  </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>Kepala Pemerintahan</h3>
+                <h3>Transportasi</h3>
                 <div class="faq-content">
-                  <p>1. Ki Lurah Karawang (Sebelum kemerdekaan-1905) <br>
-                      2. Ki Lurah Wangsa Reja (1905-1945) <br>
-                      3. Sanwirejda/Daldiri (1945-1986) <br>
-                      4. Warno (1986-1994) <br> 
-                      5. Basiran (1995-1999) <br>
-                      6. Darsono (2001-2006) <br>
-                      7. Slamet (2007-2013) <br>
-                      8. Dodiet Prasetyo (2013-2019) <br>
-                      9. Slamet (2020-2025)</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Fasilitas Desa</h3>
-                <div class="faq-content">
-                  <p>Paud           : 1 Buah <br>
-                    TK             : 2 Buah <br>
-                    SD             : 1 Buah <br>
-                    Masjid         : 3 Buah <br>
-                    Mushola        : 10 Buah <br>
-                    Puskesmas : 1 Buah </p>
+                  <p>Kecamatan Kalibagor Merupakan Pertemuan Arus Lintas Jalan Nasional Rute 6 antara Ajibarang Secang Dengan Jalan Provinsi Patikraja - Kaliori Serta Kalibagor - Sakalputung Tembus Nya di Sokaraja
+                      Untuk jalan Provinsi Linggamas di desa Pajerukan Dan Desa Petir S udah dibeton dah lebar jalan nya Tembus nya Di Desa Sokaraja Kidul Udah bisa lalui meningat Bandara jenderal Soedirman Purbalingga kesini se makin cepat sampe ke Banyumas Kota lama Kecamatan dan Purwokerto</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -209,7 +288,7 @@
   <footer id="footer" class="footer position-relative light-background">
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyVillage2025</strong><span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Kecamatan Kalibagor 2025</strong><span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -220,6 +299,8 @@
     </div>
 
   </footer>
+
+  
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -236,7 +317,45 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+  function createPin() {
+    const container = document.getElementById('bubble-wrapper');
+    if (!container) return;
 
+    const pin = document.createElement('i');
+    
+    // Menggunakan ikon pin dari Bootstrap Icons
+    pin.className = "bi bi-geo-alt-fill"; 
+    
+    pin.style.position = "absolute";
+    pin.style.bottom = "-50px"; // Mulai dari bawah layar
+    pin.style.color = "rgba(56, 175, 233, 0.4)"; // Sedikit lebih jelas
+    pin.style.fontSize = Math.random() * 15 + 15 + "px"; // Ukuran 15px - 30px
+    pin.style.left = Math.random() * 100 + "vw";
+    pin.style.zIndex = "5"; // Di depan gambar tapi di belakang teks
+    
+    // DURASI ANIMASI (Dibuat lebih cepat: 4 sampai 7 detik saja)
+    const duration = Math.random() * 3 + 4; 
+    pin.style.transition = `transform ${duration}s linear, opacity ${duration}s ease-in`;
+    
+    container.appendChild(pin);
+
+    // Jalankan animasi (Gerakan ke atas)
+    setTimeout(() => {
+      // Ditambah variasi rotasi sedikit saja agar tidak pusing
+      pin.style.transform = `translateY(-130vh) rotate(${Math.random() * 40 - 20}deg)`;
+      pin.style.opacity = "0";
+    }, 50);
+
+    // Hapus elemen setelah selesai agar tidak membebani browser
+    setTimeout(() => { 
+      pin.remove(); 
+    }, duration * 1000);
+  }
+
+  // INTERVAL MUNCUL (Sekarang muncul setiap 0.6 detik - lebih ramai dan cepat)
+  setInterval(createPin, 600);
+</script> 
 </body>
 
 </html>
