@@ -1,1 +1,0 @@
-var json_KantorPemerintahan_10 = {"type":"FeatureCollection","name":"KantorPemerintahan_10","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Balai Desa Desa Srowot","Alamat":null},"geometry":{"type":"Point","coordinates":[109.322704699905856,-7.505816324649029]}}]}

@@ -1,1 +1,0 @@
-var json_Bumdes_15 = {"type":"FeatureCollection","name":"Bumdes_15","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Bumdes Ujub  Srowot","Alamat":null},"geometry":{"type":"Point","coordinates":[109.323183297859757,-7.511840799297786]}}]}
