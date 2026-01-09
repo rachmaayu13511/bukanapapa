@@ -1,1 +1,0 @@
-var json_KantorPemerintahan_26 = {"type":"FeatureCollection","name":"KantorPemerintahan_26","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Balai Desa Wlahar Wetan"},"geometry":{"type":"Point","coordinates":[109.271716389407516,-7.504165039452194]}}]}

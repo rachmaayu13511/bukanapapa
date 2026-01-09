@@ -1,1 +1,0 @@
-var json_FasilitasKesenian_21 = {"type":"FeatureCollection","name":"FasilitasKesenian_21","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Sanggar Seni Ngesti Laras"},"geometry":{"type":"Point","coordinates":[109.264882121354646,-7.501529386887583]}}]}

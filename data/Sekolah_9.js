@@ -1,1 +1,0 @@
-var json_Sekolah_9 = {"type":"FeatureCollection","name":"Sekolah_9","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"SD Negeri Kalicupak Lor"},"geometry":{"type":"Point","coordinates":[109.316396631976573,-7.461823435646652]}}]}
