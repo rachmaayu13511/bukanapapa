@@ -1,1 +1,0 @@
-var json_SPBU_10 = {"type":"FeatureCollection","name":"SPBU_10","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"SPBU Pertamina Kalibagor"},"geometry":{"type":"Point","coordinates":[109.29800133374259,-7.486483073391496]}}]}
