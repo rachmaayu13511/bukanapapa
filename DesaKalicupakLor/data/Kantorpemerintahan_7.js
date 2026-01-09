@@ -1,1 +1,0 @@
-var json_Kantorpemerintahan_7 = {"type":"FeatureCollection","name":"Kantorpemerintahan_7","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Balai Desa Kalicupak Lor"},"geometry":{"type":"Point","coordinates":[109.318196393636072,-7.459345088205025]}}]}
